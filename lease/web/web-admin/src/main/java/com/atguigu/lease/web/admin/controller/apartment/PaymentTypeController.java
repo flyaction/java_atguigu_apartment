@@ -3,8 +3,10 @@ package com.atguigu.lease.web.admin.controller.apartment;
 
 import com.atguigu.lease.common.result.Result;
 import com.atguigu.lease.model.entity.PaymentType;
+import com.atguigu.lease.web.admin.service.PaymentTypeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,10 +17,14 @@ import java.util.List;
 @RestController
 public class PaymentTypeController {
 
+    @Autowired
+    private PaymentTypeService service;
+
     @Operation(summary = "查询全部支付方式列表")
     @GetMapping("list")
     public Result<List<PaymentType>> listPaymentType() {
-        return Result.ok();
+        List<PaymentType> list = service.list();
+        return Result.ok(list);
     }
 
     @Operation(summary = "保存或更新支付方式")
