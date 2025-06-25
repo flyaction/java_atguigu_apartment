@@ -30,6 +30,7 @@ public class PaymentTypeController {
     @Operation(summary = "保存或更新支付方式")
     @PostMapping("saveOrUpdate")
     public Result saveOrUpdatePaymentType(@RequestBody PaymentType paymentType) {
+        service.saveOrUpdate(paymentType);
         return Result.ok();
     }
 
