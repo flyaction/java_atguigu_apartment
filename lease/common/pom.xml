@@ -40,6 +40,13 @@
             <artifactId>minio</artifactId>
         </dependency>
 
+        <!--包含spring web相关依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+
     </dependencies>
 
 </project>
