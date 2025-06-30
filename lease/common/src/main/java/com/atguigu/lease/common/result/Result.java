@@ -34,6 +34,12 @@ public class Result<T> {
         return result;
     }
 
+    public static <T> Result<T> fail(Integer code, String message) {
+        Result<T> result = build(null);
+        result.setCode(code);
+        result.setMessage(message);
+        return result;
+    }
 
     public static <T> Result<T> ok(T data) {
         return build(data, ResultCodeEnum.SUCCESS);
