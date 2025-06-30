@@ -20,4 +20,6 @@ public interface ApartmentInfoService extends IService<ApartmentInfo> {
     IPage<ApartmentItemVo> pageItem(IPage<ApartmentItemVo> page, ApartmentQueryVo queryVo);
 
     ApartmentDetailVo getApartmentDetailById(Long id);
+
+    void removeApartmentById(Long id);
 }
