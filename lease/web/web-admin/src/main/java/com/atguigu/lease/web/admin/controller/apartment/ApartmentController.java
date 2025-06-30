@@ -39,7 +39,7 @@ public class ApartmentController {
     public Result<IPage<ApartmentItemVo>> pageItem(@RequestParam long current, @RequestParam long size, ApartmentQueryVo queryVo) {
 
         IPage<ApartmentItemVo> page = new Page<>(current, size);
-        IPage<ApartmentItemVo> list = service.pageApartmentItemByQuery(page, queryVo);
+        IPage<ApartmentItemVo> list = service.pageItem(page, queryVo);
         return Result.ok(list);
 
     }

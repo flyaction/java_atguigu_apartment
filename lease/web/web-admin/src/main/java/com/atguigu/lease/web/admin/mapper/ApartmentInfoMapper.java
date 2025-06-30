@@ -14,7 +14,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 */
 public interface ApartmentInfoMapper extends BaseMapper<ApartmentInfo> {
 
-    IPage<ApartmentItemVo> pageApartmentItemByQuery(IPage<ApartmentItemVo> page, ApartmentQueryVo queryVo);
+    IPage<ApartmentItemVo> pageItem(IPage<ApartmentItemVo> page, ApartmentQueryVo queryVo);
 }
 
 

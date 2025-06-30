@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.lease.web.admin.mapper.ApartmentInfoMapper">
 
-    <select id="pageApartmentItemByQuery"
+    <select id="pageItem"
             resultType="com.atguigu.lease.web.admin.vo.apartment.ApartmentItemVo">
 
         select ai.id,
