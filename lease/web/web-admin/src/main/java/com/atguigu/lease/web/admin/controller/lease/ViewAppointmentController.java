@@ -43,7 +43,7 @@ public class ViewAppointmentController {
         LambdaUpdateWrapper<ViewAppointment> wrapper = new LambdaUpdateWrapper<>();
         wrapper.eq(ViewAppointment::getId, id)
                 .set(ViewAppointment::getAppointmentStatus, status)
-                .set(ViewAppointment::getUpdateTime, new Date(System.currentTimeMillis()));
+                .set(ViewAppointment::getUpdateTime, new Date());
 
         service.update(wrapper);
 
