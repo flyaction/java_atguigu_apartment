@@ -2,7 +2,6 @@ package com.atguigu.lease.model.entity;
 
 import com.atguigu.lease.model.enums.BaseStatus;
 import com.atguigu.lease.model.enums.SystemUserType;
-import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -21,7 +20,7 @@ public class SystemUser extends BaseEntity {
     private String username;
 
     @Schema(description = "密码")
-    @TableField(value = "password")
+    @TableField(value = "password",select = false)
     private String password;
 
     @Schema(description = "姓名")
