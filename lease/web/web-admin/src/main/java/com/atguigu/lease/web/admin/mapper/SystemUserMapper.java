@@ -16,6 +16,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 public interface SystemUserMapper extends BaseMapper<SystemUser> {
 
     IPage<SystemUserItemVo> pageSystemUserByQuery(Page<SystemUserItemVo> page, SystemUserQueryVo queryVo);
+
+    SystemUser selectOneByUsername(String username);
 }
 
 
