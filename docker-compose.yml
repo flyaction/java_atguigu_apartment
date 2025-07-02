@@ -1,22 +1,19 @@
+version: '3.8'
+
 services:
   minio:
-    image: minio/minio:latest
-    restart: always
-    privileged: true
-    command: server --address ":9000" --console-address ":9001" /data
-    ports:
-      - "9000:9000"
-      - "9001:9001"
-    networks:
-      - privnet
-    volumes:
-      - "/Users/action/minio:/data"
+    image: quay.io/minio/minio:latest
+    container_name: minio
+    command: server /data --console-address ":9001"
     environment:
-      - MINIO_ROOT_USER=minioadmin
-      - MINIO_ROOT_PASSWORD=minioadmin
-      - MINIO_DEFAULT_BUCKETS=privchat
- 
-networks:
-  privnet:
-    driver: bridge
- 
+      MINIO_ROOT_USER: minioadmin  # 默认管理员用户名
+      MINIO_ROOT_PASSWORD: minioadmin  # 默认管理员密码
+    ports:
+      - "9002:9000"  # API 端口
+      - "9001:9001"  # 控制台端口
+    volumes:
+      - minio_data:/data  # 持久化存储
+    restart: unless-stopped
+
+volumes:
+  minio_data:

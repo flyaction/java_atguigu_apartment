@@ -12,7 +12,7 @@
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
     "lint:eslint": "eslint src/**/*.{ts,vue} --cache --fix",
     "lint:style": "stylelint src/**/*.{css,less,scss,vue,postcss} --cache --fix",
-    "prepare": "husky install",
+    "prepare": "cd .. && husky install rentHouseAdmin/.husky",
     "lint-staged": "lint-staged",
     "commitlint": "commitlint --config commitlint.config.cjs -e -V"
   },
