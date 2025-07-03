@@ -16,7 +16,7 @@ public class SmsServiceImpl implements SmsService {
         SendSmsRequest smsRequest = new SendSmsRequest();
         smsRequest.setPhoneNumbers(phone);
         smsRequest.setSignName("阿里云短信测试");
-        smsRequest.setTemplateCode("SMS_154950909");
+        smsRequest.setTemplateCode("SMS_460660309");
         smsRequest.setTemplateParam("{\"code\":\"" + code + "\"}");
         try {
             client.sendSms(smsRequest);
