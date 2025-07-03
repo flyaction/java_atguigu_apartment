@@ -102,6 +102,11 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
 
         return roomDetailVo;
     }
+
+    @Override
+    public IPage<RoomItemVo> pageItemByApartmentId(IPage<RoomItemVo> page, Long id) {
+        return roomInfoMapper.pageItemByApartmentId(page, id);
+    }
 }
 
 
