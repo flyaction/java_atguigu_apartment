@@ -35,6 +35,6 @@
     </select>
     
     <select id="selectGraphVoByRoomId" resultType="com.atguigu.lease.web.app.vo.graph.GraphVo">
-        select name,url from graph_info where item_id = #{roomId} and item_type = 2
+        select name,url from graph_info where item_id = #{roomId} and item_type = 2 and is_deleted = 0
     </select>
 </mapper>
