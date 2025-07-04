@@ -105,6 +105,8 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
         roomDetailVo.setFeeValueVoList(feeValueVoList);
         roomDetailVo.setLeaseTermList(leaseTermList);
 
+        System.out.println("保存获取房间详情:"+Thread.currentThread().getName());
+
         browsingHistoryService.saveHistory(LoginUserHolder.getLoginUser().getUserId(), id);
 
         return roomDetailVo;
