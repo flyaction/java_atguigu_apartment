@@ -4,4 +4,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.lease.web.app.mapper.BrowsingHistoryMapper">
 
+    <select id="pageHistoryItemByUserId" resultType="com.atguigu.lease.web.app.vo.history.HistoryItemVo">
+
+        SELECT bh.id,
+               bh.user_id,
+               bh.room_id,
+               bh.browse_time,
+               ri.id   as room_id,
+               ri.room_number,
+               ri.rent,
+               ai.name as apartment_name,
+               ai.province_name,
+               ai.city_name,
+               ai.district_name
+        FROM browsing_history bh
+                 LEFT JOIN room_info ri ON bh.room_id = ri.id and ri.is_deleted = 0
+                 LEFT JOIN apartment_info ai ON ri.apartment_id = ai.id and ai.is_deleted = 0
+
+        where bh.is_deleted = 0
+          and bh.user_id = #{userId}
+        order by bh.browse_time desc
+
+    </select>
 </mapper>
