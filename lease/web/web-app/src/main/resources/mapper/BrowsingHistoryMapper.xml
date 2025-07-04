@@ -4,7 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.lease.web.app.mapper.BrowsingHistoryMapper">
 
-    <select id="pageHistoryItemByUserId" resultType="com.atguigu.lease.web.app.vo.history.HistoryItemVo">
+    <resultMap id="HistoryItemVoMap" type="com.atguigu.lease.web.app.vo.history.HistoryItemVo" autoMapping="true">
+        <id column="id" property="id"/>
+        <id column="room_id" property="roomId"/>
+        <collection property="roomGraphVoList" ofType="com.atguigu.lease.web.app.vo.graph.GraphVo" select="selectGraphVoByRoomId" column="room_id"></collection>
+
+    </resultMap>
+
+    <select id="pageHistoryItemByUserId" resultMap="HistoryItemVoMap">
 
         SELECT bh.id,
                bh.user_id,
@@ -25,5 +32,9 @@
           and bh.user_id = #{userId}
         order by bh.browse_time desc
 
+    </select>
+    
+    <select id="selectGraphVoByRoomId" resultType="com.atguigu.lease.web.app.vo.graph.GraphVo">
+        select name,url from graph_info where item_id = #{roomId} and item_type = 2
     </select>
 </mapper>
