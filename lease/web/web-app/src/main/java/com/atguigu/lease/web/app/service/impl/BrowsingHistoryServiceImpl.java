@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -30,6 +31,7 @@ public class BrowsingHistoryServiceImpl extends ServiceImpl<BrowsingHistoryMappe
     }
 
     @Override
+    @Async
     public void saveHistory(Long userId, Long id) {
 
         LambdaQueryWrapper<BrowsingHistory> queryWrapper = new LambdaQueryWrapper<>();
